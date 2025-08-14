@@ -1,17 +1,7 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HKET4Y1KM6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HKET4Y1KM6');
-</script>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>GA4テストページ</title>
 
   <!-- Google tag (gtag.js) -->
@@ -20,11 +10,22 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-HKET4Y1KM6');
+
+    // デバッグ表示を有効化（一時的）
+    gtag('config', 'G-HKET4Y1KM6', { debug_mode: true });
   </script>
 </head>
 <body>
   <h1>GA4のテストページへようこそ！</h1>
   <p>このページはGitHub Pagesでホストされています。</p>
+
+  <button id="cta">テストクリック</button>
+  <script>
+    // クリックイベントを送信（デバッグ表示で確認しやすい）
+    document.getElementById('cta').addEventListener('click', () => {
+      gtag('event', 'test_click', { label: 'cta_button' });
+      alert('イベント送信しました（DebugViewで見えます）');
+    });
+  </script>
 </body>
 </html>
